@@ -110,6 +110,31 @@
 				},
 				{
 					"name": "/boards/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"//needs to be adjusted, timeout?\r",
+									"pm.sendRequest(\r",
+									"    `${pm.collectionVariables.get(\"url\")}/boards/${pm.globals.get(\"id_board\")}?key=${pm.collectionVariables.get(\"key\")}&token=${pm.collectionVariables.get(\"token\")}`, \r",
+									"    function (err, response) {\r",
+									"        console.log(response.text());\r",
+									"\r",
+									"        pm.test(\"Status code is 404 after GET /deleted_board\", function () {\r",
+									"            pm.response.to.have.status(404);\r",
+									"        });\r",
+									"\r",
+									"    }\r",
+									");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -300,6 +325,19 @@
 				},
 				{
 					"name": "/cards/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -333,6 +371,19 @@
 				},
 				{
 					"name": "/cards/{id}/actions/comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -367,6 +418,19 @@
 				},
 				{
 					"name": "/cards/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -395,6 +459,19 @@
 				},
 				{
 					"name": "/cards/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
